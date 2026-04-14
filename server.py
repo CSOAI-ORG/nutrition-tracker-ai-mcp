@@ -26,33 +26,23 @@ def _rl(c="anon"):
 _meal_log = defaultdict(list)
 
 # Nutrition database (per 100g serving)
-_FOODS = {
-    "chicken breast": {"calories": 165, "protein": 31, "carbs": 0, "fat": 3.6, "fiber": 0, "category": "protein"},
-    "salmon": {"calories": 208, "protein": 20, "carbs": 0, "fat": 13, "fiber": 0, "category": "protein"},
-    "egg": {"calories": 155, "protein": 13, "carbs": 1.1, "fat": 11, "fiber": 0, "category": "protein"},
-    "rice": {"calories": 130, "protein": 2.7, "carbs": 28, "fat": 0.3, "fiber": 0.4, "category": "grain"},
-    "brown rice": {"calories": 123, "protein": 2.7, "carbs": 26, "fat": 1, "fiber": 1.8, "category": "grain"},
-    "pasta": {"calories": 131, "protein": 5, "carbs": 25, "fat": 1.1, "fiber": 1.8, "category": "grain"},
-    "bread": {"calories": 265, "protein": 9, "carbs": 49, "fat": 3.2, "fiber": 2.7, "category": "grain"},
-    "oats": {"calories": 389, "protein": 17, "carbs": 66, "fat": 7, "fiber": 11, "category": "grain"},
-    "banana": {"calories": 89, "protein": 1.1, "carbs": 23, "fat": 0.3, "fiber": 2.6, "category": "fruit"},
-    "apple": {"calories": 52, "protein": 0.3, "carbs": 14, "fat": 0.2, "fiber": 2.4, "category": "fruit"},
-    "orange": {"calories": 47, "protein": 0.9, "carbs": 12, "fat": 0.1, "fiber": 2.4, "category": "fruit"},
-    "strawberry": {"calories": 32, "protein": 0.7, "carbs": 7.7, "fat": 0.3, "fiber": 2, "category": "fruit"},
-    "broccoli": {"calories": 34, "protein": 2.8, "carbs": 7, "fat": 0.4, "fiber": 2.6, "category": "vegetable"},
-    "spinach": {"calories": 23, "protein": 2.9, "carbs": 3.6, "fat": 0.4, "fiber": 2.2, "category": "vegetable"},
-    "carrot": {"calories": 41, "protein": 0.9, "carbs": 10, "fat": 0.2, "fiber": 2.8, "category": "vegetable"},
-    "sweet potato": {"calories": 86, "protein": 1.6, "carbs": 20, "fat": 0.1, "fiber": 3, "category": "vegetable"},
-    "avocado": {"calories": 160, "protein": 2, "carbs": 9, "fat": 15, "fiber": 7, "category": "fat"},
-    "olive oil": {"calories": 884, "protein": 0, "carbs": 0, "fat": 100, "fiber": 0, "category": "fat"},
-    "almonds": {"calories": 579, "protein": 21, "carbs": 22, "fat": 50, "fiber": 12, "category": "fat"},
-    "milk": {"calories": 42, "protein": 3.4, "carbs": 5, "fat": 1, "fiber": 0, "category": "dairy"},
-    "yogurt": {"calories": 59, "protein": 10, "carbs": 3.6, "fat": 0.7, "fiber": 0, "category": "dairy"},
-    "cheese": {"calories": 402, "protein": 25, "carbs": 1.3, "fat": 33, "fiber": 0, "category": "dairy"},
-    "tofu": {"calories": 76, "protein": 8, "carbs": 1.9, "fat": 4.8, "fiber": 0.3, "category": "protein"},
-    "lentils": {"calories": 116, "protein": 9, "carbs": 20, "fat": 0.4, "fiber": 8, "category": "legume"},
-    "chickpeas": {"calories": 164, "protein": 8.9, "carbs": 27, "fat": 2.6, "fiber": 8, "category": "legume"},
+# Nutrition database (per 100g): [calories, protein, carbs, fat, fiber, category]
+_FOODS_RAW = {
+    "chicken breast": [165, 31, 0, 3.6, 0, "protein"], "salmon": [208, 20, 0, 13, 0, "protein"],
+    "egg": [155, 13, 1.1, 11, 0, "protein"], "tofu": [76, 8, 1.9, 4.8, 0.3, "protein"],
+    "rice": [130, 2.7, 28, 0.3, 0.4, "grain"], "brown rice": [123, 2.7, 26, 1, 1.8, "grain"],
+    "pasta": [131, 5, 25, 1.1, 1.8, "grain"], "bread": [265, 9, 49, 3.2, 2.7, "grain"],
+    "oats": [389, 17, 66, 7, 11, "grain"], "banana": [89, 1.1, 23, 0.3, 2.6, "fruit"],
+    "apple": [52, 0.3, 14, 0.2, 2.4, "fruit"], "orange": [47, 0.9, 12, 0.1, 2.4, "fruit"],
+    "strawberry": [32, 0.7, 7.7, 0.3, 2, "fruit"], "broccoli": [34, 2.8, 7, 0.4, 2.6, "vegetable"],
+    "spinach": [23, 2.9, 3.6, 0.4, 2.2, "vegetable"], "carrot": [41, 0.9, 10, 0.2, 2.8, "vegetable"],
+    "sweet potato": [86, 1.6, 20, 0.1, 3, "vegetable"], "avocado": [160, 2, 9, 15, 7, "fat"],
+    "olive oil": [884, 0, 0, 100, 0, "fat"], "almonds": [579, 21, 22, 50, 12, "fat"],
+    "milk": [42, 3.4, 5, 1, 0, "dairy"], "yogurt": [59, 10, 3.6, 0.7, 0, "dairy"],
+    "cheese": [402, 25, 1.3, 33, 0, "dairy"], "lentils": [116, 9, 20, 0.4, 8, "legume"],
+    "chickpeas": [164, 8.9, 27, 2.6, 8, "legume"],
 }
+_FOODS = {k: {"calories": v[0], "protein": v[1], "carbs": v[2], "fat": v[3], "fiber": v[4], "category": v[5]} for k, v in _FOODS_RAW.items()}
 
 
 mcp = FastMCP("nutrition-tracker-ai-mcp", instructions="Nutrition tracking and dietary analysis by MEOK AI Labs.")
