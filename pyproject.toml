@@ -1,18 +1,16 @@
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
 [project]
 name = "nutrition-tracker-ai-mcp"
-version = "0.1.0"
-description = "Track daily food intake, sum macros and calories, and compare against personalized targets."
-readme = "README.md"
-license = {text = "MIT"}
+version = "1.0.0"
+description = "MEOK AI Labs — nutrition-tracker-ai-mcp"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
-dependencies = [
-    "mcp>=1.0.0",
-    "pydantic>=2.0",
-]
-
-[project.scripts]
-nutrition_tracker_ai_mcp = "nutrition_tracker_ai_mcp.server:main"
+authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
+dependencies = ["mcp>=1.0.0"]
+[project.urls]
+Homepage = "https://meok.ai"
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+only-include = ["server.py"]
