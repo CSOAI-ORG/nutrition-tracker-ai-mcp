@@ -1,3 +1,20 @@
 name: nutrition-tracker-ai-mcp
-description: MEOK AI Labs - Unutrition tracker ai
+description: Track daily food intake, sum macros and calories, and compare against
+  personalized targets.
 version: 1.0.0
+tools:
+- name: macro_calculator
+  description: ''
+  parameters:
+  - name: weight_kg
+    type: number
+    required: true
+  - name: goal
+    type: string
+    required: true
+- name: meal_balance_score
+  description: ''
+  parameters:
+  - name: meal
+    type: object
+    required: true
