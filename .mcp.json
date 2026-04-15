@@ -1,14 +1,57 @@
 {
   "name": "nutrition-tracker-ai-mcp",
-  "description": "Track daily food intake, sum macros and calories, and compare against personalized targets.",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Nutrition tracking and dietary analysis by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
-      "name": "macro_calculator",
-      "description": "",
+      "name": "log_meal",
+      "description": "Log a meal with foods and serving sizes. Foods are matched against built-in database.",
       "parameters": {
         "type": "object",
         "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "foods": {
+            "type": "array"
+          },
+          "servings_grams": {
+            "type": "array"
+          },
+          "meal_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "foods"
+        ]
+      }
+    },
+    {
+      "name": "get_daily_summary",
+      "description": "Get a summary of all meals logged today for a user.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      }
+    },
+    {
+      "name": "check_nutrient_balance",
+      "description": "Check if today's nutrition is balanced against recommended targets.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
           "weight_kg": {
             "type": "number"
           },
@@ -17,23 +60,44 @@
           }
         },
         "required": [
-          "weight_kg",
-          "goal"
+          "user_id"
         ]
       }
     },
     {
-      "name": "meal_balance_score",
-      "description": "",
+      "name": "suggest_foods",
+      "description": "Suggest foods high in a specific nutrient, optionally filtered by category.",
       "parameters": {
         "type": "object",
         "properties": {
-          "meal": {
-            "type": "object"
+          "nutrient": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "get_calorie_estimate",
+      "description": "Estimate calories for a food item. Matches against database or estimates from description.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "food_description": {
+            "type": "string"
+          },
+          "grams": {
+            "type": "number"
           }
         },
         "required": [
-          "meal"
+          "food_description"
         ]
       }
     }

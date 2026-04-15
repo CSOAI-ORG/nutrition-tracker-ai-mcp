@@ -1,20 +1,60 @@
 name: nutrition-tracker-ai-mcp
-description: Track daily food intake, sum macros and calories, and compare against
-  personalized targets.
+description: Nutrition tracking and dietary analysis by MEOK AI Labs.
 version: 1.0.0
 tools:
-- name: macro_calculator
-  description: ''
+- name: log_meal
+  description: Log a meal with foods and serving sizes. Foods are matched against
+    built-in database.
   parameters:
-  - name: weight_kg
-    type: number
-    required: true
-  - name: goal
+  - name: user_id
     type: string
     required: true
-- name: meal_balance_score
-  description: ''
-  parameters:
-  - name: meal
-    type: object
+  - name: foods
+    type: array
     required: true
+  - name: servings_grams
+    type: array
+    required: false
+  - name: meal_type
+    type: string
+    required: false
+- name: get_daily_summary
+  description: Get a summary of all meals logged today for a user.
+  parameters:
+  - name: user_id
+    type: string
+    required: true
+- name: check_nutrient_balance
+  description: Check if today's nutrition is balanced against recommended targets.
+  parameters:
+  - name: user_id
+    type: string
+    required: true
+  - name: weight_kg
+    type: number
+    required: false
+  - name: goal
+    type: string
+    required: false
+- name: suggest_foods
+  description: Suggest foods high in a specific nutrient, optionally filtered by category.
+  parameters:
+  - name: nutrient
+    type: string
+    required: false
+  - name: category
+    type: string
+    required: false
+  - name: limit
+    type: integer
+    required: false
+- name: get_calorie_estimate
+  description: Estimate calories for a food item. Matches against database or estimates
+    from description.
+  parameters:
+  - name: food_description
+    type: string
+    required: true
+  - name: grams
+    type: number
+    required: false
