@@ -45,11 +45,11 @@ _FOODS_RAW = {
 _FOODS = {k: {"calories": v[0], "protein": v[1], "carbs": v[2], "fat": v[3], "fiber": v[4], "category": v[5]} for k, v in _FOODS_RAW.items()}
 
 
-mcp = FastMCP("nutrition-tracker-ai-mcp", instructions="Nutrition tracking and dietary analysis by MEOK AI Labs.")
+mcp = FastMCP("nutrition-tracker-ai", instructions="Nutrition tracking and dietary analysis by MEOK AI Labs.")
 
 
-@mcp.tool(name="log_meal")
-async def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: str = "snack", api_key: str = "") -> dict:
+@mcp.tool()
+def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: str = "snack", api_key: str = "") -> dict:
     """Log a meal with foods and serving sizes. Foods are matched against built-in database."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -114,8 +114,8 @@ async def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_
     return result
 
 
-@mcp.tool(name="get_daily_summary")
-async def get_daily_summary(user_id: str, api_key: str = "") -> dict:
+@mcp.tool()
+def get_daily_summary(user_id: str, api_key: str = "") -> dict:
     """Get a summary of all meals logged today for a user."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -160,8 +160,8 @@ async def get_daily_summary(user_id: str, api_key: str = "") -> dict:
     }
 
 
-@mcp.tool(name="check_nutrient_balance")
-async def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "maintain", api_key: str = "") -> dict:
+@mcp.tool()
+def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "maintain", api_key: str = "") -> dict:
     """Check if today's nutrition is balanced against recommended targets."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -213,8 +213,8 @@ async def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str 
     }
 
 
-@mcp.tool(name="suggest_foods")
-async def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10, api_key: str = "") -> dict:
+@mcp.tool()
+def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10, api_key: str = "") -> dict:
     """Suggest foods high in a specific nutrient, optionally filtered by category."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -247,8 +247,8 @@ async def suggest_foods(nutrient: str = "protein", category: str = "", limit: in
     }
 
 
-@mcp.tool(name="get_calorie_estimate")
-async def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str = "") -> dict:
+@mcp.tool()
+def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str = "") -> dict:
     """Estimate calories for a food item. Matches against database or estimates from description."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
