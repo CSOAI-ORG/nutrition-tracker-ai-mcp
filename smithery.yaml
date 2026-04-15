@@ -1,5 +1,6 @@
 name: nutrition-tracker-ai-mcp
-description: Nutrition tracking and dietary analysis by MEOK AI Labs.
+description: 'Nutrition Tracker Ai tools for AI agents. Capabilities: log meal, get
+  daily summary, check nutrient balance. Built by MEOK AI Labs.'
 version: 1.0.0
 tools:
 - name: log_meal

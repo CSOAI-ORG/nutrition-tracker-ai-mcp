@@ -1,6 +1,6 @@
 {
   "name": "nutrition-tracker-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Nutrition tracking and dietary analysis by MEOK AI Labs.",
+  "description": "Nutrition Tracker Ai tools for AI agents. Capabilities: log meal, get daily summary, check nutrient balance. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
