@@ -1,0 +1,56 @@
+{
+  "name": "nutrition-tracker-ai",
+  "description": "Nutrition tracking and dietary analysis by MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/nutrition-tracker-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "log_meal",
+      "description": "Log a meal with foods and serving sizes. Foods are matched against built-in database."
+    },
+    {
+      "name": "get_daily_summary",
+      "description": "Get a summary of all meals logged today for a user."
+    },
+    {
+      "name": "check_nutrient_balance",
+      "description": "Check if today's nutrition is balanced against recommended targets."
+    },
+    {
+      "name": "suggest_foods",
+      "description": "Suggest foods high in a specific nutrient, optionally filtered by category."
+    },
+    {
+      "name": "get_calorie_estimate",
+      "description": "Estimate calories for a food item. Matches against database or estimates from description."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
