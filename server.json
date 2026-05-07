@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "CSOAI-ORG/nutrition-tracker-ai-mcp",
+  "version": "1.0.0",
+  "description": "Nutrition Tracker Ai MCP Server by MEOK AI Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/nutrition-tracker-ai-mcp",
+    "source": "https://github.com/CSOAI-ORG/nutrition-tracker-ai-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "nutrition-tracker-ai-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "python",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
