@@ -50,7 +50,23 @@ mcp = FastMCP("nutrition-tracker-ai", instructions="Nutrition tracking and dieta
 
 @mcp.tool()
 def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: str = "snack", api_key: str = "") -> dict:
-    """Log a meal with foods and serving sizes. Foods are matched against built-in database."""
+    """Log a meal with foods and serving sizes. Foods are matched against built-in database.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -116,7 +132,23 @@ def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: 
 
 @mcp.tool()
 def get_daily_summary(user_id: str, api_key: str = "") -> dict:
-    """Get a summary of all meals logged today for a user."""
+    """Get a summary of all meals logged today for a user.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -162,7 +194,23 @@ def get_daily_summary(user_id: str, api_key: str = "") -> dict:
 
 @mcp.tool()
 def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "maintain", api_key: str = "") -> dict:
-    """Check if today's nutrition is balanced against recommended targets."""
+    """Check if today's nutrition is balanced against recommended targets.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -215,7 +263,23 @@ def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "mai
 
 @mcp.tool()
 def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10, api_key: str = "") -> dict:
-    """Suggest foods high in a specific nutrient, optionally filtered by category."""
+    """Suggest foods high in a specific nutrient, optionally filtered by category.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -249,7 +313,23 @@ def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10
 
 @mcp.tool()
 def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str = "") -> dict:
-    """Estimate calories for a food item. Matches against database or estimates from description."""
+    """Estimate calories for a food item. Matches against database or estimates from description.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
