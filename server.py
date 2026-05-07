@@ -66,6 +66,14 @@ def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        user_id (str): The user id to analyze or process.
+        foods (list): The foods to analyze or process.
+        servings_grams (list): The servings grams to analyze or process.
+        meal_type (str): The meal type to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -162,6 +170,11 @@ def get_daily_summary(user_id: str, api_key: str = "") -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        user_id (str): The user id to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -238,6 +251,13 @@ def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "mai
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        user_id (str): The user id to analyze or process.
+        weight_kg (float): The weight kg to analyze or process.
+        goal (str): The goal to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -321,6 +341,13 @@ def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        nutrient (str): The nutrient to analyze or process.
+        category (str): The category to analyze or process.
+        limit (int): The limit to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -385,6 +412,12 @@ def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        food_description (str): The food description to analyze or process.
+        grams (float): The grams to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
