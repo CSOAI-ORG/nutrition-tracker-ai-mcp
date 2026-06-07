@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "nutrition-tracker-ai-mcp",
+    "description": "Nutrition Tracker Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "nutrition-tracker-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "log_meal",
+      "get_daily_summary",
+      "check_nutrient_balance",
+      "suggest_foods",
+      "get_calorie_estimate"
+    ]
+  }
+}
