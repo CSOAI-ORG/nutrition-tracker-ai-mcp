@@ -1,0 +1,28 @@
+{
+  "name": "nutrition-tracker-ai-mcp",
+  "title": "Nutrition Tracker Ai Mcp",
+  "description": "Nutrition Tracker Ai tools for AI agents. Capabilities: log meal, get daily summary, check nutrient balance. Built by MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "log_meal"
+    },
+    {
+      "name": "get_daily_summary"
+    },
+    {
+      "name": "check_nutrient_balance"
+    },
+    {
+      "name": "suggest_foods"
+    },
+    {
+      "name": "get_calorie_estimate"
+    }
+  ]
+}

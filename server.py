@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Nutrition tracking, meal logging, and dietary analysis — MEOK AI Labs."""
+"""
+Nutrition tracking, meal logging, and dietary analysis — MEOK AI Labs."""
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json
@@ -91,7 +91,7 @@ def log_meal(user_id: str, foods: list, servings_grams: list = None, meal_type: 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(api_key or "anon"):
         return err
 
@@ -192,7 +192,7 @@ def get_daily_summary(user_id: str, api_key: str = "") -> dict:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(api_key or "anon"):
         return err
 
@@ -275,7 +275,7 @@ def check_nutrient_balance(user_id: str, weight_kg: float = 70, goal: str = "mai
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(api_key or "anon"):
         return err
 
@@ -365,7 +365,7 @@ def suggest_foods(nutrient: str = "protein", category: str = "", limit: int = 10
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(api_key or "anon"):
         return err
 
@@ -435,7 +435,7 @@ def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(api_key or "anon"):
         return err
 
@@ -494,5 +494,8 @@ def get_calorie_estimate(food_description: str, grams: float = 100, api_key: str
     }
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

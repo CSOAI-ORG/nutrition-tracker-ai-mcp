@@ -1,0 +1,36 @@
+# nutrition-tracker-ai-mcp
+# **MCP server for nutrition tracker ai mcp operations**
+
+## Install
+```bash
+pip install nutrition-tracker-ai-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `log_meal`
+Log a meal with foods and serving sizes. Foods are matched against built-in database.
+
+### `get_daily_summary`
+Get a summary of all meals logged today for a user.
+
+### `check_nutrient_balance`
+Check if today's nutrition is balanced against recommended targets.
+
+### `suggest_foods`
+Suggest foods high in a specific nutrient, optionally filtered by category.
+
+### `get_calorie_estimate`
+Estimate calories for a food item. Matches against database or estimates from description.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

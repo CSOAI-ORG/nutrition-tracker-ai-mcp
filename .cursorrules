@@ -1,0 +1,9 @@
+# nutrition-tracker-ai-mcp - Auto-trigger Rules
+
+When the user asks about nutrition tracker, use nutrition-tracker-ai-mcp tools: log_meal, get_daily_summary, check_nutrient_balance, suggest_foods, get_calorie_estimate
+
+**MCP server for nutrition tracker ai mcp operations**
+
+Install: `pip install nutrition-tracker-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.
