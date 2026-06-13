@@ -1,0 +1,117 @@
+{
+  "name": "Nutrition Tracker Ai Mcp",
+  "version": "1.0.6",
+  "url": "https://mcp.meok.ai/nutrition-tracker-ai-mcp/a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "description": "Nutrition Tracker Ai tools for AI agents. Capabilities: log meal, get daily summary, check nutrient balance. Built by MEOK AI Labs.",
+  "provider": {
+    "organization": "MEOK AI LABS",
+    "url": "https://meok.ai"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "log_meal",
+      "name": "Log Meal",
+      "description": "Log Meal — a tool of the nutrition-tracker-ai-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "get_daily_summary",
+      "name": "Get Daily Summary",
+      "description": "Get Daily Summary — a tool of the nutrition-tracker-ai-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "check_nutrient_balance",
+      "name": "Check Nutrient Balance",
+      "description": "Check Nutrient Balance — a tool of the nutrition-tracker-ai-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "suggest_foods",
+      "name": "Suggest Foods",
+      "description": "Suggest Foods — a tool of the nutrition-tracker-ai-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "get_calorie_estimate",
+      "name": "Get Calorie Estimate",
+      "description": "Get Calorie Estimate — a tool of the nutrition-tracker-ai-mcp MCP.",
+      "tags": [
+        "mcp",
+        "meok"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "documentationUrl": "https://meok.ai",
+  "x-meok": {
+    "mcp_name": "nutrition-tracker-ai-mcp",
+    "verifier": "https://proofof.ai/verify",
+    "governed_by": "CSOAI 52-article charter"
+  }
+}
